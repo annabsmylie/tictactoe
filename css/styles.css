@@ -1,0 +1,25 @@
+.cell{
+	min-height: 3em;
+	border-width: 1px;
+	font-size: 400%;
+	text-align: center;
+	padding-top: .75em;
+}
+
+.center-cell{
+	border-style: solid;
+}
+
+.side-cell{
+	border-top-style: solid;
+	border-bottom-style: solid;
+}
+
+.middle-cell{
+	border-right-style: solid;
+	border-left-style: solid;
+}
+
+.title{
+	margin-bottom: 1.5em;
+}
