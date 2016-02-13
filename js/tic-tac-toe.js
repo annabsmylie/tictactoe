@@ -11,7 +11,9 @@ var xCells = [];
 var oCells = [];
 
 //string to hold which player is active, either X or O
-var activePlayer = "X";
+var activePlayer;
+
+var startingPlayer = "X";
 
 //define index variable and two-dimensional array
 // var i;
@@ -32,7 +34,7 @@ var init = function() {
 	$('.cell').empty();
 	xCells = [];
 	oCells = [];
-	activePlayer = 'X';
+	activePlayer = startingPlayer;
 }
 
 //run victory check, toggle active player, TASK ONE
@@ -70,13 +72,17 @@ var victoryCheck = function(combo) {
 		for (i = 0; i < winCells.length; ++i) {
 			if (xCheck(winCells[i])) {
 				alert("Yay, X won!");
+				//determine next starting player 
+				startingPlayer = 'X';
 			};
 			if (oCheck(winCells[i])) {
 				alert("Yay, O won!");
+				startingPlayer = 'O';
 			};
 			
 		}
 	};
+
 
 //check the three numbers passed to see if they are in the xCells array
 var xCheck = function(combo) {
@@ -94,9 +100,12 @@ var oCheck = function(combo) {
 // setup the registry, empties html content
 init();
 
+//startingPlayer is return of victoryCheck
+// startingPlayer = victoryCheck();
+
 // attach the click handlers when page loads
 $(document).ready(function() {
-	//the event is a click even that becomes an object that passes info, in this case the id
+	//the event is a click event that becomes an object that passes info, in this case the id
     $('.cell').click(function(event) {
       claimCell(event.currentTarget.id);
       endTurn();
